@@ -4,7 +4,7 @@ OBJS	=serial.o i2c_master.o MPU9250.o ${BIN}.o
 
 DEVICE		=atmega328p
 CLOCK		=16000000UL
-PORT		=/dev/ttyUSB0
+PORT		=/dev/ttyUSB*
 BAUD		=57600
 ICSP		=arduino
 PROGRAMMER	=-c ${ICSP} -P ${PORT} -b ${BAUD}
@@ -24,7 +24,7 @@ ${BIN}.hex: ${BIN}.elf
 ${BIN}.elf: ${OBJS}
 	${CC} -o $@ $^
 
-MPU9250.o: mpuLib/MPU9250.c mpuLib/MPU9250.h i2c/i2c_master.h 
+MPU9250.o: imu/MPU9250.c imu/MPU9250.h i2c/i2c_master.h 
 	${CC} -c $^
 
 i2c_master.o: i2c/i2c_master.c i2c/i2c_master.h

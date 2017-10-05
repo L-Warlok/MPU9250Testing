@@ -3,9 +3,10 @@
 #define EXAMPLE_H
 
 #include "uart/serial.h"
-#include "mpuLib/MPU9250.h"
+#include "imu/MPU9250.h"
 #include <avr/io.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 
 #endif

@@ -6,21 +6,21 @@
 //==============================================================================
 
 // Set initial input parameters
-enum static Ascale {
+enum Ascale {
   AFS_2G = 0,
   AFS_4G,
   AFS_8G,
   AFS_16G
 };
 
-enum static Gscale {
+enum Gscale {
   GFS_250DPS = 0,
   GFS_500DPS,
   GFS_1000DPS,
   GFS_2000DPS
 };
 
-enum static Mscale {
+enum Mscale {
   MFS_14BITS = 0, // 0.6 mG per LSB
   MFS_16BITS      // 0.15 mG per LSB
 };
@@ -51,7 +51,7 @@ int16_t static gyroCount[3];   // Stores the 16-bit signed gyro sensor output
 int16_t static magCount[3];    // Stores the 16-bit signed magnetometer sensor output
 // Scale resolutions per LSB for the sensors
 float static aRes;
-float static gRes
+float static gRes;
 float static mRes;
 // Variables to hold latest sensor data values
 float static ax; 
@@ -525,8 +525,7 @@ uint8_t readByte(uint8_t address, uint8_t subAddress)
   return data;                             // Return data read from slave register
 }
 
-void readBytes(uint8_t address, uint8_t subAddress, uint8_t count,
-                        uint8_t * dest)
+void readBytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {  
   i2c_readReg(address, subAddress, dest, count);
 }
